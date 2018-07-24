@@ -22,7 +22,9 @@ public class MessageUtil {
         Document document = XMLUtil.readString2XML(message);
         Element root = document.getRootElement();
         String MsgType = XMLUtil.readNode(root, "MsgType");
+        System.out.println("MsgType"+MsgType);
         if (MsgType.equals(Constant.MSGTYPE_TEXT)) {
+            System.out.println("进来了");
             ReplyTextMsg textMsg = new ReplyTextMsg();
             textMsg.setFromUserName(Constant.DEVELOPERWXID);
             textMsg.setToUserName(XMLUtil.readNode(root, "FromUserName"));
@@ -36,6 +38,7 @@ public class MessageUtil {
                 //将对象转化为XML
                 String replyMsg = textMsg.Msg2Xml();
                 out.println(replyMsg);
+                System.out.println("");
                 out.close();
             } catch (Exception e) {
                 e.printStackTrace();
