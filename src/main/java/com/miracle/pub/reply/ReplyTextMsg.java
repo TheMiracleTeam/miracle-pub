@@ -3,7 +3,7 @@ package com.miracle.pub.reply;
 import com.thoughtworks.xstream.XStream;
 
 /**
- * @Description:返回文本消息类
+ * 返回文本消息类
  * @Author: ZhengHuanBin
  * @Date: 2018-07-25 0:50
  */

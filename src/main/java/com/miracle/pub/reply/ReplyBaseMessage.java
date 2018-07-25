@@ -1,7 +1,7 @@
 package com.miracle.pub.reply;
 
 /**
- * @Description:返回消息基类
+ * 返回消息基类
  * @Author: ZhengHuanBin
  * @Date: 2018-07-25 0:49
  */

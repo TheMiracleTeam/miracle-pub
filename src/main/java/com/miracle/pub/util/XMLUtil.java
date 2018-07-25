@@ -8,7 +8,7 @@ import org.dom4j.Element;
 import java.util.List;
 
 /**
- * @Description:XMLUtil工具类（用来处理微信服务器发送过来的XML消息）
+ * XMLUtil工具类（用来处理微信服务器发送过来的XML消息）
  * @Author: ZhengHuanBin
  * @Date: 2018-07-25 0:51
  */
