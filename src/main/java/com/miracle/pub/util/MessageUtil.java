@@ -7,6 +7,7 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -25,10 +26,7 @@ public class MessageUtil {
         Element root = document.getRootElement();
         String MsgType = XMLUtil.readNode(root, "MsgType");
         String Content = XMLUtil.readNode(root, "Content");
-        System.out.println("MsgType"+MsgType);
-        System.out.println("Content"+Content);
         if (MsgType.equals(Constant.MSGTYPE_TEXT)) {
-            System.out.println("进来了");
             ReplyTextMsg textMsg = new ReplyTextMsg();
             textMsg.setFromUserName(Constant.DEVELOPERWXID);
             textMsg.setToUserName(XMLUtil.readNode(root, "FromUserName"));
@@ -45,7 +43,15 @@ public class MessageUtil {
                     e.printStackTrace();
                 }
             } else {
-                textMsg.setContent(nodeString);
+                //textMsg.setContent(nodeString);
+                Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String dateString = formatter.format(date);
+
+                textMsg.setContent("\uD83D\uDD50" +dateString+ "\n" +
+                        "\uD83D\uDE0F你发给我的消息是："+Content+"\n" +
+                        "-----------------------------\n" +
+                        "你还可以发送：天气-城市名\n来查询天气预报☀");
             }
             textMsg.setMsgType(Constant.MSGTYPE_TEXT);
             try {
